@@ -91,7 +91,7 @@ var (
 		AzureCNIImageBase:                "mcr.microsoft.com/containernetworking/",
 		MCRKubernetesImageBase:           "mcr.microsoft.com/",
 		EtcdDownloadURLBase:              "mcr.microsoft.com/oss/etcd-io/",
-		KubeBinariesSASURLBase:           "https://acs-mirror.azureedge.net/kubernetes/",
+		KubeBinariesSASURLBase:           "https://kubernetesartifacts.azureedge.net/kubernetes/",
 		WindowsTelemetryGUID:             "fb801154-36b9-41bc-89c2-f4d4f05472b0",
 		CNIPluginsDownloadURL:            "https://acs-mirror.azureedge.net/cni/cni-plugins-amd64-" + CNIPluginVer + ".tgz",
 		VnetCNILinuxPluginsDownloadURL:   "https://acs-mirror.azureedge.net/cni/azure-vnet-cni-linux-amd64-" + AzureCniPluginVerLinux + ".tgz",
@@ -176,9 +176,9 @@ var (
 	// AKSWindowsServer2019OSImageConfig is the AKS image based on Windows Server 2019
 	AKSWindowsServer2019OSImageConfig = AzureOSImageConfig{
 		ImageOffer:     "aks-windows",
-		ImageSku:       "2019-datacenter-core-smalldisk-2004",
+		ImageSku:       "2019-datacenter-core-smalldisk-2005",
 		ImagePublisher: "microsoft-aks",
-		ImageVersion:   "17763.1158.200421",
+		ImageVersion:   "17763.1217.200513",
 	}
 
 	// WindowsServer2019OSImageConfig is the 'vanilla' Windows Server 2019 image
@@ -186,7 +186,7 @@ var (
 		ImageOffer:     "WindowsServer",
 		ImageSku:       "2019-Datacenter-Core-with-Containers-smalldisk",
 		ImagePublisher: "MicrosoftWindowsServer",
-		ImageVersion:   "17763.1158.2004131759",
+		ImageVersion:   "17763.1217.2005081535",
 	}
 
 	// ACC1604OSImageConfig is the ACC image based on Ubuntu 16.04.
@@ -288,9 +288,9 @@ var (
 			EtcdDownloadURLBase:              "mcr.microsoft.com/oss/etcd-io/",
 			KubeBinariesSASURLBase:           DefaultKubernetesSpecConfig.KubeBinariesSASURLBase,
 			WindowsTelemetryGUID:             DefaultKubernetesSpecConfig.WindowsTelemetryGUID,
-			CNIPluginsDownloadURL:            "https://mirror.azk8s.cn/kubernetes/containernetworking-plugins/cni-plugins-amd64-" + CNIPluginVer + ".tgz",
-			VnetCNILinuxPluginsDownloadURL:   "https://mirror.azk8s.cn/kubernetes/azure-container-networking/azure-vnet-cni-linux-amd64-" + AzureCniPluginVerLinux + ".tgz",
-			VnetCNIWindowsPluginsDownloadURL: "https://mirror.azk8s.cn/kubernetes/azure-container-networking/azure-vnet-cni-windows-amd64-" + AzureCniPluginVerWindows + ".zip",
+			CNIPluginsDownloadURL:            "https://mirror.azk8s.cn/kubernetes/containernetworking-plugins/cni-plugins-linux-amd64-" + CNIPluginVer + ".tgz",
+			VnetCNILinuxPluginsDownloadURL:   "https://kubernetesartifacts.blob.core.chinacloudapi.cn/azure-cni/" + AzureCniPluginVerLinux + "/binaries/azure-vnet-cni-linux-amd64-" + AzureCniPluginVerLinux + ".tgz",
+			VnetCNIWindowsPluginsDownloadURL: "https://kubernetesartifacts.blob.core.chinacloudapi.cn/azure-cni/" + AzureCniPluginVerWindows + "/binaries/azure-vnet-cni-singletenancy-windows-amd64-" + AzureCniPluginVerWindows + ".zip",
 			ContainerdDownloadURLBase:        "https://mirror.azk8s.cn/kubernetes/containerd/",
 		},
 		DCOSSpecConfig: DCOSSpecConfig{

@@ -477,7 +477,10 @@ func getContainerServiceFuncMap(cs *api.ContainerService) template.FuncMap {
 				kubernetesWindowsAzureCniFunctionsPS1,
 				kubernetesWindowsLogsCleanupPS1,
 				kubernetesWindowsNodeResetPS1,
-				kubernetesWindowsOpenSSHFunctionPS1}
+				kubernetesWindowsOpenSSHFunctionPS1,
+				kubeletStartPS1,
+				kubeproxyStartPS1,
+			}
 
 			// Create a buffer, new zip
 			buf := new(bytes.Buffer)
@@ -931,6 +934,13 @@ func generateUserAssignedIdentityClientIDParameter(isUserAssignedIdentity bool) 
 		return "' USER_ASSIGNED_IDENTITY_ID=',reference(concat('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('userAssignedID')), '2018-11-30').clientId, ' '"
 	}
 	return "' USER_ASSIGNED_IDENTITY_ID=',' '"
+}
+
+func generateUserAssignedIdentityClientIDParameterForWindows(isUserAssignedIdentity bool) string {
+	if isUserAssignedIdentity {
+		return "' -UserAssignedClientID ',reference(variables('userAssignedIDReference'), variables('apiVersionManagedIdentity')).clientId,"
+	}
+	return ""
 }
 
 func getDockerConfig(cs *api.ContainerService, hasGPU bool) (string, error) {
